@@ -4,7 +4,7 @@ import PageHeader from '../template/pageHeader';
 import TodoForm from './todoForm';
 import TodoList from './todoList';
 
-const url = 'http://localhost:3003/api/todos';
+const URL = 'http://localhost:3003/api/todos';
 
 export default class Todo extends Component {
     constructor(props) {
@@ -20,16 +20,19 @@ export default class Todo extends Component {
 
     handleAdd() {
         const description = this.state.description;
-    
-        axios.post(url, { description }).then(res => console.log(res))
+
+        axios.post('http://localhost:3003/api/todos', { description }).then(res => console.log('funcionou'))
     };
 
     render() {
-        return(
+        return (
             <div>
                 <PageHeader name="Tarefas" small="Cadastrar" />
 
-                <TodoForm handleChange={this.handleChange} description={this.state.description} handleAdd={this.handleAdd} />
+                <TodoForm
+                    description={this.state.description}
+                    handleChange={this.handleChange}
+                    handleAdd={this.handleAdd} />
 
                 <TodoList />
             </div>

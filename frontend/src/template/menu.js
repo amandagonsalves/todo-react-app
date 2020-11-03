@@ -18,7 +18,6 @@ export default props => {
                     </ul>
                 </div>
             </div>
-
         </nav>
     )
 }
