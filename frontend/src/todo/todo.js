@@ -21,7 +21,7 @@ export default class Todo extends Component {
     handleAdd() {
         const description = this.state.description;
     
-        axios.post(url, { description }).then(res => console.log('funcionou'))
+        axios.post(url, { description }).then(res => console.log(res))
     };
 
     render() {
@@ -29,7 +29,7 @@ export default class Todo extends Component {
             <div>
                 <PageHeader name="Tarefas" small="Cadastrar" />
 
-                <TodoForm handleAdd={this.handleAdd} description={this.state.description} handleChange={this.handleChange} />
+                <TodoForm handleChange={this.handleChange} description={this.state.description} handleAdd={this.handleAdd} />
 
                 <TodoList />
             </div>
