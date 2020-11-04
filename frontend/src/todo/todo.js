@@ -10,8 +10,8 @@ export default class Todo extends Component {
     constructor(props) {
         super(props);
         this.state = { description: '', list: [] };
-        this.handleAdd = this.handleAdd.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
     };
 
     handleChange(e) {
@@ -21,7 +21,7 @@ export default class Todo extends Component {
     handleAdd() {
         const description = this.state.description;
 
-        axios.post('http://localhost:3003/api/todos', { description }).then(res => console.log('funcionou'))
+        axios.post(URL, { description }).then(res => console.log('funcionou'))
     };
 
     render() {
