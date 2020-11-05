@@ -5,7 +5,7 @@ export default props => {
         const list = props.list || [];
         console.log(list)
         return list.map(todo => {
-            <tr><td>{todo.description}</td></tr>
+            return <tr><td>{todo.description}</td></tr>;
         });
     };
 
