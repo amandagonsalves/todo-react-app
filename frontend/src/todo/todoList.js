@@ -1,19 +1,26 @@
 import React from 'react';
+import IconButton from '../template/iconButton';
 
 export default props => {
     const renderRows = () => {
         const list = props.list || [];
         console.log(list)
         return list.map(todo => {
-            return <tr><td>{todo.description}</td></tr>;
+            return <tr key={todo._id}>
+                <td>{todo.description}</td>
+                <td>
+                    <IconButton style="danger" icon="trash-o" onClick={() => props.handleRemove(todo)}/>
+                </td>
+            </tr>;
         });
     };
 
-    return(
+    return (
         <table className="table">
             <thead>
                 <tr>
                     <th>Descrição</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
