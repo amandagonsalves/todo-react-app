@@ -7,14 +7,12 @@ export const changeDescription = (e) => ({
     payload: e.target.value
 });
 
-export const search = (description) => {
-    const search = description ? `&description__regex=/${description}/` : '';
-    const request = axios.get(`${URL}?sort=-createdAt${search}`)
-    
-    return {
-        type: 'TODO_SEARCHED',
-        payload: request
-    };
+export const search = () => {
+    return (dispatch, getState) => {
+        const description = getState().todo.description;
+        const search = description ? `&description__regex=/${description}/` : '';
+        const request = axios.get(`${URL}?sort=-createdAt${search}`).then(res => dispatch({ type: 'TODO_SEARCHED', payload: res.data }));
+    }
 };
 
 export const add = description => {
@@ -42,5 +40,5 @@ export const remove = todo => {
 };
 
 export const clear = () => {
-    return { type: 'TODO_CLEAR'}
+    return [{ type: 'TODO_CLEAR'}, search()]
 }
