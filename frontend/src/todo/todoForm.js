@@ -41,14 +41,15 @@ class TodoForm extends Component {
                     <IconButton style="default" icon="close" onClick={this.props.clear} />
                 </Grid>
 
-            </div>)
-    }
-}
+            </div>
+        );
+    };
+};
 
 const mapStateToProps = state => ({
     description: state.todo.description
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ add, changeDescription, search, clear }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ add, changeDescription, search, clear }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);

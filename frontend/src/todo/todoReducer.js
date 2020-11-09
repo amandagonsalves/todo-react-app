@@ -13,5 +13,5 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, description: '' };
         default:
             return state;
-    }
-}
+    };
+};
